@@ -6,7 +6,7 @@
 /*   By: aybelaou <aybelaou@student.s19.be>         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/03/11 17:29:25 by aybelaou          #+#    #+#             */
-/*   Updated: 2025/03/11 18:01:47 by aybelaou         ###   ########.fr       */
+/*   Updated: 2025/03/11 23:56:25 by aybelaou         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -33,5 +33,11 @@ typedef struct s_stack
 	struct s_stack	*next;
 	struct s_stack	*prev;
 }	t_stack;
+
+t_stack	*new_stack_node(long nbr);
+void	stack_add_back(t_stack **stack, t_stack *new);
+t_stack	*str_to_stack(char *str);
+t_stack	*args_to_stack(int argc, char **argv);
+void free_stack(t_stack **stack);
 
 #endif
