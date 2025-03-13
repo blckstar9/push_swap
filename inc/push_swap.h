@@ -6,7 +6,7 @@
 /*   By: aybelaou <aybelaou@student.s19.be>         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/03/11 17:29:25 by aybelaou          #+#    #+#             */
-/*   Updated: 2025/03/11 23:56:25 by aybelaou         ###   ########.fr       */
+/*   Updated: 2025/03/13 17:45:09 by aybelaou         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -38,6 +38,11 @@ t_stack	*new_stack_node(long nbr);
 void	stack_add_back(t_stack **stack, t_stack *new);
 t_stack	*str_to_stack(char *str);
 t_stack	*args_to_stack(int argc, char **argv);
-void free_stack(t_stack **stack);
+int		valid_arg(char *arg);
+int		valid_string(char *str);
+int		is_valid_int(char *str);
+int		has_duplicates(t_stack *stack);
+void	free_stack(t_stack **stack);
+void	free_split(char **split);
 
 #endif
