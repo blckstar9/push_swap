@@ -6,7 +6,7 @@
 /*   By: aybelaou <aybelaou@student.s19.be>         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/03/14 15:59:24 by aybelaou          #+#    #+#             */
-/*   Updated: 2025/03/14 17:01:57 by aybelaou         ###   ########.fr       */
+/*   Updated: 2025/03/14 18:09:16 by aybelaou         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,18 +16,25 @@ static void	swap_stack(t_stack **stack)
 {
 	t_stack	*first;
 	t_stack	*second;
+	t_stack	*last;
 
 	if (!*stack || (*stack)->next == *stack)
 		return ;
 	first = *stack;
 	second = first->next;
-	first->next = second->next;
-	second->next = first;
-	second->prev = first->prev;
-	first->prev = second;
-	first->next->prev = first;
-	second->prev->next = second;
-	*stack = second;
+	last = first->prev;
+	if (second->next == first)
+		*stack = second;
+	else
+	{
+		first->next = second->next;
+		second->next = first;
+		first->next->prev = first;
+		second->prev = last;
+		first->prev = second;
+		last->next = second;
+		*stack = second;
+	}
 }
 
 void	swap_a(t_stack **stack_a)
