@@ -6,31 +6,11 @@
 /*   By: aybelaou <aybelaou@student.s19.be>         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/03/11 21:40:37 by aybelaou          #+#    #+#             */
-/*   Updated: 2025/03/13 17:55:59 by aybelaou         ###   ########.fr       */
+/*   Updated: 2025/03/14 16:48:28 by aybelaou         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../inc/push_swap.h"
-
-// int	valid_string(char *str)
-// {
-// 	int	i;
-
-// 	if (!str || ft_strlen(str) == 0)
-// 		return (0);
-// 	i = 0;
-// 	while (str[i])
-// 	{
-// 		if (!ft_isdigit(str[i]) && str[i] != ' '
-// 			&& str[i] != '-' && str[i] != '+')
-// 			return (ft_printf(RED"Error\nBad string given!\n"RS), 0);
-// 		if ((str[i] == '-' || str[i] == '+')
-// 			&& (!str[i + 1] || !ft_isdigit(str[i + 1])))
-// 			return (ft_printf(RED"Error\nBad string given!\n"RS), 0);
-// 		i++;
-// 	}
-// 	return (1);
-// }
 
 t_stack	*new_stack_node(long nbr)
 {
@@ -48,70 +28,68 @@ t_stack	*new_stack_node(long nbr)
 
 void	stack_add_back(t_stack **stack, t_stack *new)
 {
-	t_stack	*last;
+	t_stack	*first;
 
 	if (!*stack)
 	{
 		*stack = new;
+		new->next = new;
+		new->prev = new;
 		return ;
 	}
-	last = *stack;
-	while (last->next)
-		last = last->next;
-	last->next = new;
-	new->prev = last;
+	first = *stack;
+	new->next = first;
+	new->prev = first->prev;
+	first->prev->next = new;
+	first->prev = new;
 }
 
-t_stack	*str_to_stack(char *str)
+int	str_to_stack(char *str, t_stack **stack)
 {
-	t_stack	*stack;
 	t_stack	*new;
 	char	**split;
 	int		i;
 
-	stack = NULL;
 	if (!valid_string(str))
-		return (NULL);
+		return (0);
 	split = ft_split(str, ' ');
 	if (!split)
-		return (NULL);
+		return (0);
 	i = -1;
 	while (split[++i])
 	{
 		if (!is_valid_int(split[i]))
-			return (free_stack(&stack), free_split(split), NULL);
+			return (free_stack(stack), free_split(split), 0);
 		new = new_stack_node(ft_atoi(split[i]));
 		if (!new)
-			return (free_stack(&stack), free_split(split), NULL);
-		stack_add_back(&stack, new);
+			return (free_stack(stack), free_split(split), 0);
+		stack_add_back(stack, new);
 		free(split[i]);
 	}
 	free(split);
-	if (has_duplicates(stack))
-		return (free_stack(&stack), NULL);
-	return (stack);
+	if (has_duplicates(*stack))
+		return (free_stack(stack), 0);
+	return (1);
 }
 
-t_stack	*args_to_stack(int argc, char **argv)
+int	args_to_stack(int argc, char **argv, t_stack **stack)
 {
-	t_stack	*stack;
 	t_stack	*new;
 	int		i;
 
-	stack = NULL;
 	i = 0;
 	while (++i < argc)
 	{
 		if (!valid_arg(argv[i]))
-			return (free_stack(&stack), NULL);
+			return (free_stack(stack), 0);
 		if (!is_valid_int(argv[i]))
-			return (free_stack(&stack), NULL);
+			return (free_stack(stack), 0);
 		new = new_stack_node(ft_atoi(argv[i]));
 		if (!new)
-			return (free_stack(&stack), NULL);
-		stack_add_back(&stack, new);
+			return (free_stack(stack), 0);
+		stack_add_back(stack, new);
 	}
-	if (has_duplicates(stack))
-		return (free_stack(&stack), NULL);
-	return (stack);
+	if (has_duplicates(*stack))
+		return (free_stack(stack), 0);
+	return (1);
 }

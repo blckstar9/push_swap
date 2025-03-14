@@ -6,7 +6,7 @@
 /*   By: aybelaou <aybelaou@student.s19.be>         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/03/13 17:05:51 by aybelaou          #+#    #+#             */
-/*   Updated: 2025/03/13 17:42:55 by aybelaou         ###   ########.fr       */
+/*   Updated: 2025/03/14 16:25:03 by aybelaou         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,10 +16,13 @@ void	free_stack(t_stack **stack)
 {
 	t_stack	*current;
 	t_stack	*next;
+	t_stack	*first;
 
 	if (!stack || !*stack)
 		return ;
-	current = *stack;
+	first = *stack;
+	current = first;
+	first->prev->next = NULL;
 	while (current)
 	{
 		next = current->next;

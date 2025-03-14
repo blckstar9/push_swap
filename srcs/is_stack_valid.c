@@ -6,7 +6,7 @@
 /*   By: aybelaou <aybelaou@student.s19.be>         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/03/13 17:42:23 by aybelaou          #+#    #+#             */
-/*   Updated: 2025/03/13 17:54:05 by aybelaou         ###   ########.fr       */
+/*   Updated: 2025/03/14 16:41:28 by aybelaou         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -93,12 +93,17 @@ int	has_duplicates(t_stack *stack)
 {
 	t_stack	*current;
 	t_stack	*check;
+	int		first_pass;
 
+	if (!stack)
+		return (0);
 	current = stack;
-	while (current)
+	first_pass = 1;
+	while (current != stack || first_pass)
 	{
+		first_pass = 0;
 		check = current->next;
-		while (check)
+		while (check != stack)
 		{
 			if (current->nbr == check->nbr)
 				return (ft_putstr_fd(RED"Error\nDuplicate found!\n"RS, 2), 1);
