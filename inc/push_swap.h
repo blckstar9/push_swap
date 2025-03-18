@@ -6,7 +6,7 @@
 /*   By: aybelaou <aybelaou@student.s19.be>         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/03/11 17:29:25 by aybelaou          #+#    #+#             */
-/*   Updated: 2025/03/16 17:31:11 by aybelaou         ###   ########.fr       */
+/*   Updated: 2025/03/18 17:03:01 by aybelaou         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -34,6 +34,12 @@ typedef struct s_stack
 	struct s_stack	*prev;
 }	t_stack;
 
+typedef struct s_pair
+{
+	long	value;
+	t_stack	*node;
+}	t_pair;
+
 t_stack	*new_stack_node(long nbr);
 void	stack_add_back(t_stack **stack, t_stack *new);
 int		str_to_stack(char *str, t_stack **stack);
@@ -55,5 +61,11 @@ void	rotate_both(t_stack **stack_a, t_stack **stack_b);
 void	reverse_rotate_a(t_stack **stack_a);
 void	reverse_rotate_b(t_stack **stack_b);
 void	reverse_rotate_both(t_stack **stack_a, t_stack **stack_b);
+void	my_insertion_sort(t_pair *pairs, int count);
+int		my_partition(t_pair *pairs, int low, int high);
+void	my_quicksort(t_pair *pairs, int low, int high);
+void	index_stack(t_stack *stack);
+void	fill_pairs(t_stack *stack, t_pair *pairs);
+int		count_stack(t_stack *stack);
 
 #endif
