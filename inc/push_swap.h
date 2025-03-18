@@ -6,7 +6,7 @@
 /*   By: aybelaou <aybelaou@student.s19.be>         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/03/11 17:29:25 by aybelaou          #+#    #+#             */
-/*   Updated: 2025/03/18 17:03:01 by aybelaou         ###   ########.fr       */
+/*   Updated: 2025/03/18 18:10:04 by aybelaou         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -67,5 +67,8 @@ void	my_quicksort(t_pair *pairs, int low, int high);
 void	index_stack(t_stack *stack);
 void	fill_pairs(t_stack *stack, t_pair *pairs);
 int		count_stack(t_stack *stack);
+int		is_sorted(t_stack *stack);
+void	sort_two(t_stack **stack);
+void	sort_three(t_stack **stack);
 
 #endif
