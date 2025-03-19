@@ -6,11 +6,11 @@
 /*   By: aybelaou <aybelaou@student.s19.be>         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/03/14 15:59:24 by aybelaou          #+#    #+#             */
-/*   Updated: 2025/03/14 18:09:16 by aybelaou         ###   ########.fr       */
+/*   Updated: 2025/03/19 16:14:52 by aybelaou         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "../inc/push_swap.h"
+#include "../../inc/push_swap.h"
 
 static void	swap_stack(t_stack **stack)
 {

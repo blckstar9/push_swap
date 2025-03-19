@@ -6,7 +6,7 @@
 #    By: aybelaou <aybelaou@student.s19.be>         +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2024/12/30 16:59:31 by aybelaou          #+#    #+#              #
-#    Updated: 2025/03/11 17:37:29 by aybelaou         ###   ########.fr        #
+#    Updated: 2025/03/19 16:26:19 by aybelaou         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -28,7 +28,10 @@ RM					= rm -rf
 
 OBJS_DIR			= objs
 SRCS_DIR			= srcs
-SRCS				= $(wildcard $(SRCS_DIR)/*.c)
+SRCS				= $(wildcard $(SRCS_DIR)/push_swap.c) \
+						$(wildcard $(SRCS_DIR)/stack_creation/*.c) \
+						$(wildcard $(SRCS_DIR)/stack_operations/*.c) \
+						$(wildcard $(SRCS_DIR)/stack_sorting/*.c)
 OBJS				= $(addprefix $(OBJS_DIR)/, $(SRCS:.c=.o))
 
 # ---------------------------------Librairies----------------------------------

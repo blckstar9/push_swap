@@ -6,11 +6,11 @@
 /*   By: aybelaou <aybelaou@student.s19.be>         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/03/16 17:43:27 by aybelaou          #+#    #+#             */
-/*   Updated: 2025/03/18 16:59:43 by aybelaou         ###   ########.fr       */
+/*   Updated: 2025/03/19 16:16:41 by aybelaou         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "../inc/push_swap.h"
+#include "../../inc/push_swap.h"
 
 int	count_stack(t_stack *stack)
 {

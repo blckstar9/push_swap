@@ -6,11 +6,11 @@
 /*   By: aybelaou <aybelaou@student.s19.be>         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/03/13 17:42:23 by aybelaou          #+#    #+#             */
-/*   Updated: 2025/03/14 16:41:28 by aybelaou         ###   ########.fr       */
+/*   Updated: 2025/03/19 16:15:19 by aybelaou         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "../inc/push_swap.h"
+#include "../../inc/push_swap.h"
 
 int	valid_string(char *str)
 {

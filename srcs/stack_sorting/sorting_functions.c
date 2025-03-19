@@ -6,11 +6,11 @@
 /*   By: aybelaou <aybelaou@student.s19.be>         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/03/16 18:17:02 by aybelaou          #+#    #+#             */
-/*   Updated: 2025/03/18 17:01:06 by aybelaou         ###   ########.fr       */
+/*   Updated: 2025/03/19 16:17:09 by aybelaou         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "../inc/push_swap.h"
+#include "../../inc/push_swap.h"
 
 void	my_insertion_sort(t_pair *pairs, int count)
 {

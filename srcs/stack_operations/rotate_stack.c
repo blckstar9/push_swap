@@ -6,11 +6,11 @@
 /*   By: aybelaou <aybelaou@student.s19.be>         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/03/16 17:14:06 by aybelaou          #+#    #+#             */
-/*   Updated: 2025/03/16 17:41:55 by aybelaou         ###   ########.fr       */
+/*   Updated: 2025/03/19 16:14:46 by aybelaou         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "../inc/push_swap.h"
+#include "../../inc/push_swap.h"
 
 static void	rotate_stack(t_stack **stack)
 {

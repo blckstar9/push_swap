@@ -6,7 +6,7 @@
 /*   By: aybelaou <aybelaou@student.s19.be>         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/03/11 17:29:25 by aybelaou          #+#    #+#             */
-/*   Updated: 2025/03/18 18:10:04 by aybelaou         ###   ########.fr       */
+/*   Updated: 2025/03/19 15:18:54 by aybelaou         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -70,5 +70,8 @@ int		count_stack(t_stack *stack);
 int		is_sorted(t_stack *stack);
 void	sort_two(t_stack **stack);
 void	sort_three(t_stack **stack);
+int find_position(t_stack *stack, int index);
+void move_to_top(t_stack **stack, int index);
+void sort_small(t_stack **stack_a, t_stack **stack_b, int size);
 
 #endif

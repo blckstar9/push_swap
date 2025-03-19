@@ -6,11 +6,11 @@
 /*   By: aybelaou <aybelaou@student.s19.be>         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/03/14 16:00:03 by aybelaou          #+#    #+#             */
-/*   Updated: 2025/03/14 17:22:32 by aybelaou         ###   ########.fr       */
+/*   Updated: 2025/03/19 16:14:33 by aybelaou         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "../inc/push_swap.h"
+#include "../../inc/push_swap.h"
 
 static void	remove_from_stack(t_stack **stack, t_stack **node)
 {
