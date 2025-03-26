@@ -5,34 +5,68 @@
 /*                                                    +:+ +:+         +:+     */
 /*   By: aybelaou <aybelaou@student.s19.be>         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2025/03/16 17:43:27 by aybelaou          #+#    #+#             */
-/*   Updated: 2025/03/19 16:16:41 by aybelaou         ###   ########.fr       */
+/*   Created: 2025/03/16 18:17:02 by aybelaou          #+#    #+#             */
+/*   Updated: 2025/03/21 17:20:14 by aybelaou         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../../inc/push_swap.h"
 
-int	count_stack(t_stack *stack)
+static void	my_insertion_sort(t_pair *pairs, int count)
 {
-	t_stack	*current;
-	int		count;
-	int		first_pass;
+	int		i;
+	int		j;
+	t_pair	key;
 
-	if (!stack)
-		return (0);
-	count = 0;
-	current = stack;
-	first_pass = 1;
-	while (current != stack || first_pass)
+	i = 0;
+	while (++i < count)
 	{
-		first_pass = 0;
-		count++;
-		current = current->next;
+		key = pairs[i];
+		j = i;
+		while (--j >= 0 && pairs[j].value > key.value)
+			pairs[j + 1] = pairs[j];
+		pairs[j + 1] = key;
 	}
-	return (count);
 }
 
-void	fill_pairs(t_stack *stack, t_pair *pairs)
+static int	my_partition(t_pair *pairs, int low, int high)
+{
+	t_pair	pivot;
+	int		i;
+	int		j;
+	t_pair	temp;
+
+	pivot = pairs[high];
+	i = low - 1;
+	j = low - 1;
+	while (++j < high)
+	{
+		if (pairs[j].value <= pivot.value)
+		{
+			temp = pairs[++i];
+			pairs[i] = pairs[j];
+			pairs[j] = temp;
+		}
+	}
+	temp = pairs[i + 1];
+	pairs[i + 1] = pairs[high];
+	pairs[high] = temp;
+	return (i + 1);
+}
+
+static void	my_quicksort(t_pair *pairs, int low, int high)
+{
+	int	pivot_idx;
+
+	if (low < high)
+	{
+		pivot_idx = my_partition(pairs, low, high);
+		my_quicksort(pairs, low, pivot_idx - 1);
+		my_quicksort(pairs, pivot_idx + 1, high);
+	}
+}
+
+static void	fill_pairs(t_stack *stack, t_pair *pairs)
 {
 	t_stack	*current;
 	int		first_pass;
